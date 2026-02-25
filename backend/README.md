@@ -20,7 +20,7 @@
   <a href="https://jwt.io/" target="_blank">
     <img src="https://img.shields.io/badge/JWT-Auth-orange?logo=jsonwebtokens" alt="JWT"/>
   </a>
-  <a href="https://github.com/Harbringe/Web3Lms/blob/main/LICENSE" target="_blank">
+  <a href="https://github.com/Harbringe/Knowledge-ledger/blob/main/LICENSE" target="_blank">
     <img src="https://img.shields.io/badge/License-GPL-green.svg" alt="GPL License"/>
   </a>
   <a href="https://render.com/" target="_blank">
@@ -35,7 +35,7 @@
   <a href="https://ethereum.org/" target="_blank">
     <img src="https://img.shields.io/badge/Ethereum-SmartContracts-purple?logo=ethereum" alt="Ethereum"/>
   </a>
-  <a href="https://github.com/Harbringe/Web3Lms/discussions" target="_blank">
+  <a href="https://github.com/Harbringe/Knowledge-ledger/discussions" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-Discussions-blue?logo=github" alt="Discussions"/>
   </a>
 </p>
@@ -109,7 +109,7 @@
 
 ## ✨ Overview
 
-**Web3Lms** is a next-generation Learning Management System (LMS) focused on blockchain and Web3 technology education. Built on the Cardano blockchain, it offers a decentralized, verifiable, and transparent platform for both students and instructors. The platform enables learners to earn immutable, blockchain-stored certificates and credentials, while instructors can create, manage, and monetize high-quality courses.
+**Knowledge Ledger** is a next-generation Learning Management System (LMS) focused on blockchain and Web3 technology education. Built on the Cardano blockchain, it offers a decentralized, verifiable, and transparent platform for both students and instructors. The platform enables learners to earn immutable, blockchain-stored certificates and credentials, while instructors can create, manage, and monetize high-quality courses.
 
 </div>
 
@@ -298,7 +298,7 @@ graph LR
 ```bash
 # Clone the repository
 git clone <repo-url>
-cd Web3Lms/backend
+cd Knowledge-ledger/backend
 
 # Create virtual environment
 python -m venv .venv
@@ -353,12 +353,7 @@ The project is configured for deployment on **Render** with the following setup:
   ./build.sh
   ```
 
-* **Static Files**: Ensure your Django settings use `whitenoise` for serving static files in production.
-  Add this to `middleware` in `settings.py`:
-
-  ```python
-  'whitenoise.middleware.WhiteNoiseMiddleware',
-  ```
+* **Static Files**: Django will serve static files using the default static files handling. For production, consider using a CDN or web server for better performance.
 
 * **Database**: PostgreSQL is auto-configured if provisioned through Render. Ensure `dj-database-url` is used in your `settings.py`.
 
@@ -402,7 +397,7 @@ Create a `.env` file with the following variables:
 
 ```env
 # Database
-DB_CONN_URL=postgresql://user:password@localhost:5432/web3lms
+DB_CONN_URL=postgresql://user:password@localhost:5432/knowledge-ledger
 
 # Email (Mailgun)
 MAILGUN_API_KEY=your-mailgun-api-key
@@ -416,18 +411,6 @@ RAZORPAY_KEY_SECRET=your-razorpay-secret
 # Frontend
 FRONTEND_SITE_URL=http://localhost:3000
 
-# Storage (set to False to use server disk for media)
-USE_CLOUDINARY=False
-
-# If using local server storage, point these to your mounted SSD paths
-MEDIA_ROOT_PATH=/var/storage/media
-STATIC_ROOT_PATH=/var/storage/staticfiles
-
-# Cloudinary (only used if USE_CLOUDINARY=True)
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-
 # Django Super-user
 CREATE_SUPERUSER=True/False
 DJANGO_SUPERUSER_EMAIL=superuser@email.com
@@ -439,7 +422,7 @@ DJANGO_SUPERUSER_USERNAME=superuser
 
 ```bash
 # Create PostgreSQL database
-createdb web3lms
+createdb Knowledge Ledger
 
 # Run migrations
 python manage.py migrate
@@ -485,7 +468,7 @@ This project is licensed under the GPL License
 ## 👨‍💻 About the Author
 
 > **Aaditya Mehetre** (He/Him)  
-> Blockchain and Full Stack Developer Intern @ [KONMA.ORG](https://www.konma.io/)  
+> Blockchain and Full Stack Developer @ [KONMA.ORG](https://www.konma.io/)  
 > Passionate about AI, ML, and Python Development  
 > Building decentralized apps powered by Cardano  
 > Computer Engineering Graduate  
